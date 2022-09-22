@@ -1,0 +1,42 @@
+<div class="row justify-content-center mt-4">
+    <div class="col-6">
+        <h4>Template Driven Form</h4>
+        <br>
+        <form (ngSubmit)="onSubmit(userDetailForm)" #userDetailForm="ngForm">
+            <div class="mb-3">
+                <label for="username" class="form-label">Username</label>
+                <input type="text" name="username" class="form-control" [ngModel]="defaultUsername" required
+                    #username="ngModel">
+                <p class="text-muted" *ngIf="username.touched && !username.valid">Please enter a username!</p>
+            </div>
+            <div class="mb-3">
+                <label for="email">Email</label>
+                <input type="email" name="email" class="form-control" [(ngModel)]="defaultEmail" required email
+                    #email="ngModel">
+                <p class="text-muted" *ngIf="email.touched && !email.valid">Please enter a valid email
+                    value!</p>
+                <p>You entered - {{ defaultEmail }}</p>
+            </div>
+            <div class="mb-3">
+                <label for="password">Password</label>
+                <input type="password" name="password" class="form-control" ngModel required #password="ngModel">
+                <p class="text-muted" *ngIf="password.touched && !password.valid">Please enter a password!</p>
+            </div>
+            <div class="mb-3">
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" value="male" ngModel>
+                    <label class="form-check-label" for="gender">
+                        Male
+                    </label>
+                </div>
+                <div class="form-check">
+                    <input class="form-check-input" type="radio" name="gender" value="female" ngModel>
+                    <label class="form-check-label" for="gender">
+                        Female
+                    </label>
+                </div>
+            </div>
+            <button class="btn btn-success" type="submit">Submit</button>
+        </form>
+    </div>
+</div>
